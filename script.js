@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 let getComputerChoice = () => {
     let value = Math.floor(Math.random() * 3)
     if (value === 0) {
