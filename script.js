@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let getComputerChoice = () => {
+function getComputerChoice() {
     let value = Math.floor(Math.random() * 3)
     if (value === 0) {
         return "rock"
@@ -14,7 +14,7 @@ let getComputerChoice = () => {
     }
 }
 
-let getHumanChoice = () => {
+function getHumanChoice() {
     let playerInput = prompt("Choose: Rock/Paper/Scissors").toLocaleLowerCase()
 
     if (playerInput === "rock" || playerInput === "paper" || playerInput === "scissors") {
@@ -70,9 +70,19 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    for (let i = 0; i < 5; i++) {
+        playRound(humanSelection, computerSelection);
+        if (i < 4) {
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+        }
+    }
+}
 
-playRound(humanSelection, computerSelection);
-console.log(humanScore)
-console.log(computerScore)
+
+
+playGame()
+console.log("Human: " + humanScore + "\nComputer: " + computerScore)
