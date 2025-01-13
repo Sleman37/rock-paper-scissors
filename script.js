@@ -25,4 +25,54 @@ let getHumanChoice = () => {
     }
 }
 
-console.log(getHumanChoice())
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === "rock") {
+        if (computerChoice === "rock") {
+            console.log("It's a tie!")
+        }
+        else if (computerChoice === "paper") {
+            console.log("You lose! Paper beats Rock")
+            computerScore++
+        }
+        else {
+            console.log("You win! Rock beats Scissors")
+            humanScore++
+        }
+    }
+    else if (humanChoice === "paper") {
+        if (computerChoice === "rock") {
+            console.log("You win! Paper beats Rock")
+            humanScore++
+        }
+        else if (computerChoice === "paper") {
+            console.log("It's a tie!")
+        }
+        else {
+            console.log("You lose! Scissors beat Paper")
+            computerScore++
+        }
+    }
+    else if (humanChoice === "scissors") {
+        if (computerChoice === "rock") {
+            console.log("You Lose! Rock beats Scissors")
+            computerScore++
+        }
+        else if (computerChoice === "paper") {
+            console.log("You win! Scissors beat Paper")
+            humanScore++
+        }
+        else {
+            console.log("It's a tie!")
+        }
+    }
+    else {
+        console.log("Inavlid option, please choose rock, paper or scissors")
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+console.log(humanScore)
+console.log(computerScore)
