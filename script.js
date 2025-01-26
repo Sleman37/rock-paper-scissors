@@ -1,6 +1,14 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const button = document.querySelectorAll("button")
+
+button.forEach((btn) => {
+    btn.addEventListener("click", e => {
+        console.log(e.target.value)
+    })
+})
+
 function getComputerChoice() {
     let value = Math.floor(Math.random() * 3)
     if (value === 0) {
@@ -71,18 +79,18 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    for (let i = 0; i < 5; i++) {
-        playRound(humanSelection, computerSelection);
-        if (i < 4) {
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
-        }
-    }
+    // let humanSelection = getHumanChoice();
+    // let computerSelection = getComputerChoice();
+    // for (let i = 0; i < 5; i++) {
+    //     playRound(humanSelection, computerSelection);
+    //     if (i < 4) {
+    //         humanSelection = getHumanChoice();
+    //         computerSelection = getComputerChoice();
+    //     }
+    // }
 }
 
 
 
-playGame()
-console.log("Human: " + humanScore + "\nComputer: " + computerScore)
+// playGame()
+// console.log("Human: " + humanScore + "\nComputer: " + computerScore)
