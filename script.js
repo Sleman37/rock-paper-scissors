@@ -5,7 +5,10 @@ const button = document.querySelectorAll("button")
 
 button.forEach((btn) => {
     btn.addEventListener("click", e => {
-        console.log(e.target.value)
+        let humanSelection = e.target.value
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection)
+        console.log("Human: " + humanScore + "\nComputer: " + computerScore)
     })
 })
 
@@ -78,7 +81,7 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
+function playGame(humanChoice, computerChoice) {
     // let humanSelection = getHumanChoice();
     // let computerSelection = getComputerChoice();
     // for (let i = 0; i < 5; i++) {
@@ -93,4 +96,3 @@ function playGame() {
 
 
 // playGame()
-// console.log("Human: " + humanScore + "\nComputer: " + computerScore)
