@@ -2,13 +2,17 @@ let humanScore = 0;
 let computerScore = 0;
 
 const button = document.querySelectorAll("button")
+const score = document.querySelector("#score")
 
 button.forEach((btn) => {
     btn.addEventListener("click", e => {
-        let humanSelection = e.target.value
-        let computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection)
-        console.log("Human: " + humanScore + "\nComputer: " + computerScore)
+        if (humanScore < 5 && computerScore < 5) {
+            let humanSelection = e.target.value
+            let computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection)
+            score.innerHTML = "Human: " + humanScore + "\n Computer: " + computerScore
+        }
+
     })
 })
 
